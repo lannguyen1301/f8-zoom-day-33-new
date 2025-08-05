@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F8 ZOOM DAY 33 NEW</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="inner">
+        <div class="card">
+            <h1 class="title">F8 ZOOM DAY 33 NEW</h1>
+            <button id="open-modal">Open Modal</button>
+        </div>
+    </div>
+
+    <!-- App Modal -->
+    <app-modal heading="Modal 1" hidden>
+        <h1>F8 ZOOM DAY 33 Components</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veniam possimus porro optio commodi
+            dicta? Ratione autem quidem illum sequi.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vero earum impedit voluptatibus. Debitis cum
+            sint possimus explicabo doloribus cupiditate quod iusto esse veniam hic!</p>
+        <p>Content Of Modal. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, odit!</p>
+        <div slot="footer">
+            <button id="close-btn">Cancel</button>
+            <button>Confirm</button>
+        </div>
+    </app-modal>
+
+    <!-- App Modal Template -->
+    <template id="app-modal-tpl">
+        <!-- thêm css Externals  -->
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Thêm CSS Internals -->
+        <style>
+            .inner {
+                min-width: 350px;
+                padding: var(--app-modal-padding, 20px);
+                border-radius: 10px;
+                background: #fff;
+                /*  */
+
+            }
+
+            #heading {
+                color: var(--app-modal-heading-color, red);
+            }
+        </style>
+        <div class="modal">
+            <div class="inner">
+                <div class="header">
+                    <h1 id="heading"></h1>
+                </div>
+                <div class="content">
+                    <slot></slot>
+                </div>
+                <div class="footer">
+                    <slot name="footer"></slot>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
