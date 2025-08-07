@@ -113,19 +113,18 @@ class AppModal extends HTMLElement {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                background: rgba(255, 165, 0, 0.6);
-                /* code lỗi hãy xoá đoạn này nhé*/
+                background: rgba(0, 0, 0, 0.6);
+                // code lỗi hãy xoá đoạn này nhé
                 opacity: 0;
-                transform: scale(0.95);
-                visibility: hidden;
-                pointer-events: none;
-                transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.95);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
             }
 
-           /* code lỗi hãy xoá đoạn này nhé*/
+            // code lỗi hãy xoá đoạn này nhé
             .modal.show {
                 opacity: 1;
-                transform: scale(1);
                 visibility: visible;
                 pointer-events: auto;
             }
@@ -216,84 +215,20 @@ class AppModal extends HTMLElement {
         `;
 
         const templateContent = template.content.cloneNode(true);
-        // template.content: truy câp vào nội dung bên trong thẻ template, tạo bản copy toàn bộ nội dung bên trong thẻ template.
-
         this.shadowRoot.appendChild(templateContent);
-        // Gắn nội dung đã clone vào shadowRoot của component.
 
-        const modal = this.shadowRoot.querySelector(".modal");
-        const closeBtn = this.shadowRoot.querySelector(".sp-close"); // dau X de dong modal
-        if (!closeBtn) console.warn("Không tìm thấy nút đóng (X)");
-
-        const cancelBtn = this.shadowRoot.querySelector("#close-btn"); // button cancel
-        if (!cancelBtn) console.warn("Không tìm thấy nút Cancel");
-
-        // Hiển thị modal
-        requestAnimationFrame(() => {
-            modal.classList.add("show");
-            // requestAnimationFrame là hàm có sẵn trong js tạo chuyển động mượt mà
-            // requestAnimationFrame: Đảm bảo class .show được thêm sau khi DOM render xong
-        });
-
-        // Đóng modal khi bấm nút X
-        closeBtn.addEventListener("click", () => this.close());
-
-        // Đóng modal khi bấm nút Cancel
-        cancelBtn.addEventListener("click", () => this.close());
-
-        // cách 2
-        // cancelBtn.onclick = () => {
-        //     this.close(); // this = appModal
-        // };
+        const cancelBtn = this.shadowRoot.querySelector("#close-btn");
+        cancelBtn.onclick = () => {
+            this.close(); // this = appModal
+        };
         // console.log(cancelBtn);
 
-        // đóng modal khi dùng phím esc
-        const escHandler = (e) => {
-            if (e.key === "Escape") this.close();
-        };
-
-        document.addEventListener("keydown", escHandler);
-
-        // Đóng khi click ra ngoài
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) this.close();
-        });
-
-        // Lưu lại để cleanup khi đóng
-        this._escHandler = escHandler;
-
-        console.log(templateContent); // debug
+        console.log(templateContent);
     }
-
     close() {
-        // tìm phần tử modal trong shadow DOM thông qua truy vấn class modal
-        const modal = this.shadowRoot.querySelector(".modal");
+        this.shadowRoot.innerHTML = "";
 
-        // Nếu không tìm thấy modal thì thoát luôn
-        if (!modal) {
-            console.warn("Không tìm thấy modal để đóng.");
-            return;
-        }
-
-        // gỡ class show khỏi modal
-        modal.classList.remove("show");
-
-        // Sau khi transition xong thì xoá modal khỏi DOM
-        requestAnimationFrame(() => {
-            modal.addEventListener(
-                "transitionend",
-                () => {
-                    this.shadowRoot.innerHTML = "";
-                },
-                { once: true }
-
-                // transitionend: Lắng nghe khi hiệu ứng kết thúc để xoá modal khỏi DOM
-            );
-
-            // Cleanup sự kiện
-            document.removeEventListener("keydown", this._escHandler);
-            // escHandler	Lưu lại hàm xử lý Escape để có thể xoá khi đóng
-        });
+        // this.dispatchEvent(new CustomEvent("close"));
     }
 }
 

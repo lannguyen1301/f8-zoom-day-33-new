@@ -113,7 +113,7 @@ class AppModal extends HTMLElement {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                background: rgba(255, 165, 0, 0.6);
+                background: rgba(0, 0, 0, 0.6);
                 /* code lỗi hãy xoá đoạn này nhé*/
                 opacity: 0;
                 transform: scale(0.95);
@@ -122,7 +122,7 @@ class AppModal extends HTMLElement {
                 transition: opacity 0.3s ease, transform 0.3s ease;
             }
 
-           /* code lỗi hãy xoá đoạn này nhé*/
+            // code lỗi hãy xoá đoạn này nhé
             .modal.show {
                 opacity: 1;
                 transform: scale(1);

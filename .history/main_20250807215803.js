@@ -15,10 +15,8 @@ appModal.addEventListener("close", () => {
     // code...
     // alert("Da dong");
     appModal.close();
-    // Gọi appModal.close() để thực hiện đóng modal
 });
 
-// bấm nút “Open Modal”, gọi appModal.open() để hiển thị modal.
 openModalBtn.addEventListener("click", () => {
     appModal.open();
 });

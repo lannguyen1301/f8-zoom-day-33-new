@@ -113,8 +113,8 @@ class AppModal extends HTMLElement {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                background: rgba(255, 165, 0, 0.6);
-                /* code lỗi hãy xoá đoạn này nhé*/
+                background: rgba(0, 0, 0, 0.6);
+                // code lỗi hãy xoá đoạn này nhé
                 opacity: 0;
                 transform: scale(0.95);
                 visibility: hidden;
@@ -122,7 +122,7 @@ class AppModal extends HTMLElement {
                 transition: opacity 0.3s ease, transform 0.3s ease;
             }
 
-           /* code lỗi hãy xoá đoạn này nhé*/
+            // code lỗi hãy xoá đoạn này nhé
             .modal.show {
                 opacity: 1;
                 transform: scale(1);
@@ -222,11 +222,8 @@ class AppModal extends HTMLElement {
         // Gắn nội dung đã clone vào shadowRoot của component.
 
         const modal = this.shadowRoot.querySelector(".modal");
-        const closeBtn = this.shadowRoot.querySelector(".sp-close"); // dau X de dong modal
-        if (!closeBtn) console.warn("Không tìm thấy nút đóng (X)");
-
+        const closeBtn = this.shadowRoot.querySelector(".sp-btn"); // dau X de dong modal
         const cancelBtn = this.shadowRoot.querySelector("#close-btn"); // button cancel
-        if (!cancelBtn) console.warn("Không tìm thấy nút Cancel");
 
         // Hiển thị modal
         requestAnimationFrame(() => {
@@ -268,32 +265,24 @@ class AppModal extends HTMLElement {
     close() {
         // tìm phần tử modal trong shadow DOM thông qua truy vấn class modal
         const modal = this.shadowRoot.querySelector(".modal");
+        if (!modal) return;
 
-        // Nếu không tìm thấy modal thì thoát luôn
-        if (!modal) {
-            console.warn("Không tìm thấy modal để đóng.");
-            return;
-        }
-
-        // gỡ class show khỏi modal
         modal.classList.remove("show");
 
         // Sau khi transition xong thì xoá modal khỏi DOM
-        requestAnimationFrame(() => {
-            modal.addEventListener(
-                "transitionend",
-                () => {
-                    this.shadowRoot.innerHTML = "";
-                },
-                { once: true }
+        modal.addEventListener(
+            "transitionend",
+            () => {
+                this.shadowRoot.innerHTML = "";
+            },
+            { once: true }
 
-                // transitionend: Lắng nghe khi hiệu ứng kết thúc để xoá modal khỏi DOM
-            );
+            // transitionend: Lắng nghe khi hiệu ứng kết thúc để xoá modal khỏi DOM
+        );
 
-            // Cleanup sự kiện
-            document.removeEventListener("keydown", this._escHandler);
-            // escHandler	Lưu lại hàm xử lý Escape để có thể xoá khi đóng
-        });
+        // Cleanup sự kiện
+        document.removeEventListener("keydown", this._escHandler);
+        // escHandler	Lưu lại hàm xử lý Escape để có thể xoá khi đóng
     }
 }
 
