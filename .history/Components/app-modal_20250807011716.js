@@ -2,6 +2,10 @@ class AppModal extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+
+        // thêm mới sai thì xoá ở đây đi
+        // Ràng buộc ngữ cảnh cho sự kiện
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
     }
 
     open() {
@@ -114,6 +118,19 @@ class AppModal extends HTMLElement {
                 justify-content: center;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.6);
+
+                opacity: 0;
+                transform: scale(0.95);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .modal.show {
+            opacity: 1;
+            transform: scale(1);
+            }
+
+            .modal.hide {
+            opacity: 0;
+            transform: scale(0.95);
             }
 
             .inner {
@@ -196,6 +213,11 @@ class AppModal extends HTMLElement {
 
         const templateContent = template.content.cloneNode(true);
         this.shadowRoot.appendChild(templateContent);
+
+        // xoá 2 đoạn code bên dưới nếu lỗi
+        // Gán biến tham chiếu
+        this.modal = this.shadowRoot.querySelector(".modal");
+        this.inner = this.shadowRoot.querySelector(".inner");
 
         const cancelBtn = this.shadowRoot.querySelector("#close-btn");
         cancelBtn.onclick = () => {

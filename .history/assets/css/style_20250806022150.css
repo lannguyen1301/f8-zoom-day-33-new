@@ -14,12 +14,12 @@
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    min-width: 450px;
+    max-width: 400px;
 }
 
 .card h1 {
     margin-bottom: 20px;
-    color: #560bad;
+    color: #333;
 }
 
 /* From Uiverse.io by cssbuttons-io */
@@ -42,6 +42,7 @@ button {
     font-weight: 500;
     color: var(--color);
 }
+span:before,
 button:before {
     content: "";
     position: absolute;
@@ -52,21 +53,25 @@ button:before {
     border-radius: 50%;
 }
 
+span:hover,
 button:hover {
     color: #fff;
 }
 
+span:before,
 button:before {
     top: 100%;
     left: 100%;
     transition: all 0.7s;
 }
 
+span:hover:before,
 button:hover:before {
     top: -30px;
     left: -30px;
 }
 
+span:active:before,
 button:active:before {
     background: #3a0ca3;
     transition: background 0s;

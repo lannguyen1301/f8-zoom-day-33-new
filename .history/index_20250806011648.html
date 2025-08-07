@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F8 ZOOM DAY 33 NEW</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="card">
+            <h1 class="title">F8 ZOOM DAY 33 NEW</h1>
+            <button id="open-modal">Open Modal</button>
+        </div>
+    </div>
+
+    <!-- App Modal -->
+    <app-modal hidden>
+        <div slot="header">
+            <span>x</span>
+            <h1 id="heading">F8 ZOOM DAY 33 Components</h1>
+        </div>
+        <div slot="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, totam.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium voluptas veniam ea in magni
+                temporibus.
+            </p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente aspernatur quod suscipit? Voluptas
+                quae ea
+                dolorem vero. Omnis, eius soluta!</p>
+        </div>
+
+        <div slot="footer">
+            <button id="close-btn">Cancel</button>
+            <button>Confirm</button>
+        </div>
+    </app-modal>
+
+    <!-- App Modal Template -->
+    <template id="app-modal-tpl">
+        <!-- thêm css Externals  -->
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Thêm CSS Internals -->
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            :host {
+                --app-modal-heading-color: green;
+                --app-modal-padding: 60px
+                    /* màu mặc định đang là màu đỏ */
+            }
+
+            .modal {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            .inner {
+                min-width: 350px;
+                padding: var(--app-modal-padding, 20px);
+                border-radius: 10px;
+                background: #fff;
+                /*  */
+
+            }
+
+            #heading {
+                color: var(--app-modal-heading-color, red);
+            }
+        </style>
+        <div class="modal">
+            <div class="inner">
+                <div class="header">
+                    <slot name="header"></slot>
+                </div>
+                <div class="content">
+                    <slot name="content"></slot>
+                    <h1 id="heading"></h1>
+                </div>
+                <div class="footer">
+                    <slot name="footer"></slot>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

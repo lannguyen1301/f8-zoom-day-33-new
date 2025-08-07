@@ -32,6 +32,7 @@ class AppModal extends HTMLElement {
                     /* màu mặc định đang là màu đỏ */
             }
 
+        
             .main {
             margin: 0;
             height: 100vh;
@@ -106,6 +107,8 @@ class AppModal extends HTMLElement {
                 transition: background 0s;
             }
 
+
+            // modal 
             .modal {
                 position: fixed;
                 inset: 0;
@@ -125,24 +128,17 @@ class AppModal extends HTMLElement {
 
             }
 
+
             .header {
                 margin-bottom: 20px;
             }
 
             .content {
                 margin-bottom: 20px;
-                line-height: 1.5rem
             }
 
-            .heading {
+            #heading {
                 color: var(--app-modal-heading-color, red);
-            }
-
-            .header, .content, .footer {
-                background: #e1e1e1;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #a9a9a9;
             }
 
             .modal span {
@@ -154,16 +150,14 @@ class AppModal extends HTMLElement {
                 text-align: center;
                 color: #560bad;
                 font-size: 1.5rem;
+                margin-left: auto;
+                margin-right: 22px;
                 border: 1px solid #560bad;
-                position: absolute;
-                top: 12px;
-                left: auto;
-                right: 20px;
             }
 
             .modal .footer {
-            // background-color: red;
-            // border-radius: 10px;
+            background-color: red;
+            border-radius: 10px;
             }
 
         </style>
@@ -172,7 +166,7 @@ class AppModal extends HTMLElement {
                 <div class="header" slot="header">
             <div class="circle"></div>
             <span>x</span>
-            <h1 class="heading" id="heading">F8 ZOOM DAY 33 Components</h1>
+            <h1 id="heading">F8 ZOOM DAY 33 Components</h1>
         </div>
         <div class ="content" slot="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, totam.</p>

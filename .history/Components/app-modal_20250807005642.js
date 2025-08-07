@@ -138,6 +138,12 @@ class AppModal extends HTMLElement {
                 color: var(--app-modal-heading-color, red);
             }
 
+            .header:hover {
+                color: #fff;
+                background: red;
+                border: grey;
+            }
+
             .header, .content, .footer {
                 background: #e1e1e1;
                 padding: 20px;

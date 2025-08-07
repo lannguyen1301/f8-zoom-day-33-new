@@ -32,6 +32,8 @@ class AppModal extends HTMLElement {
                     /* màu mặc định đang là màu đỏ */
             }
 
+            
+
             .main {
             margin: 0;
             height: 100vh;
@@ -134,7 +136,7 @@ class AppModal extends HTMLElement {
                 line-height: 1.5rem
             }
 
-            .heading {
+            #heading {
                 color: var(--app-modal-heading-color, red);
             }
 
@@ -142,7 +144,6 @@ class AppModal extends HTMLElement {
                 background: #e1e1e1;
                 padding: 20px;
                 border-radius: 10px;
-                border: 1px solid #a9a9a9;
             }
 
             .modal span {
@@ -172,7 +173,7 @@ class AppModal extends HTMLElement {
                 <div class="header" slot="header">
             <div class="circle"></div>
             <span>x</span>
-            <h1 class="heading" id="heading">F8 ZOOM DAY 33 Components</h1>
+            <h1 id="heading">F8 ZOOM DAY 33 Components</h1>
         </div>
         <div class ="content" slot="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, totam.</p>

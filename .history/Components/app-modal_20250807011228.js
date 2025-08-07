@@ -2,6 +2,9 @@ class AppModal extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+
+        // Sự kiện đóng modal
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
     }
 
     open() {
@@ -114,6 +117,19 @@ class AppModal extends HTMLElement {
                 justify-content: center;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.6);
+
+                opacity: 0;
+                transform: scale(0.95);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .modal.show {
+            opacity: 1;
+            transform: scale(1);
+            }
+
+            .modal.hide {
+            opacity: 0;
+            transform: scale(0.95);
             }
 
             .inner {
@@ -206,7 +222,9 @@ class AppModal extends HTMLElement {
         console.log(templateContent);
     }
     close() {
-        this.shadowRoot.innerHTML = "";
+        // this.shadowRoot.innerHTML = "";
+        this.modal.classList.remove("show");
+        this.modal.classList.add("hide");
 
         // this.dispatchEvent(new CustomEvent("close"));
     }

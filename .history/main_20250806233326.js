@@ -5,10 +5,15 @@ const openModalBtn = document.querySelector("#open-modal");
 const appModal = document.querySelector("app-modal");
 console.log(appModal);
 
+appModal.addEventListener("open", () => {
+    // code...
+    // alert("Da duoc mo");
+});
+
 appModal.addEventListener("close", () => {
     // code...
     // alert("Da dong");
-    appModal.close();
+    appModal.closest();
 });
 
 openModalBtn.addEventListener("click", () => {

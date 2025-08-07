@@ -114,6 +114,8 @@ class AppModal extends HTMLElement {
                 justify-content: center;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.6);
+
+                
             }
 
             .inner {

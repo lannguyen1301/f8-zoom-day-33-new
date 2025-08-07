@@ -134,8 +134,11 @@ class AppModal extends HTMLElement {
                 line-height: 1.5rem
             }
 
-            .heading {
+            #heading {
                 color: var(--app-modal-heading-color, red);
+            }
+
+            .heading {
             }
 
             .header, .content, .footer {

@@ -17,7 +17,6 @@ class AppModal extends HTMLElement {
         //
 
         template.innerHTML = `
-
         <!-- Thêm CSS Internals -->
         <style>
             * {
@@ -27,9 +26,32 @@ class AppModal extends HTMLElement {
             }
 
             :host {
-                --app-modal-heading-color: #560bad;
-                --app-modal-padding: 60px
+                --app-modal-heading-color: #560ba;
+                --app-modal-padding: 60px;
                     /* màu mặc định đang là màu đỏ */
+            }
+
+            .modal {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            .inner {
+                min-width: 350px;
+                padding: var(--app-modal-padding, 20px);
+                border-radius: 10px;
+                background: #fff;
+                position: relative;
+
+            }
+
+            #heading {
+                color: var(--app-modal-heading-color, red);
             }
 
             .main {
@@ -106,45 +128,6 @@ class AppModal extends HTMLElement {
                 transition: background 0s;
             }
 
-            .modal {
-                position: fixed;
-                inset: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.6);
-            }
-
-            .inner {
-                min-width: 350px;
-                padding: var(--app-modal-padding, 20px);
-                border-radius: 10px;
-                background: #fff;
-                position: relative;
-
-            }
-
-            .header {
-                margin-bottom: 20px;
-            }
-
-            .content {
-                margin-bottom: 20px;
-                line-height: 1.5rem
-            }
-
-            .heading {
-                color: var(--app-modal-heading-color, red);
-            }
-
-            .header, .content, .footer {
-                background: #e1e1e1;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #a9a9a9;
-            }
-
             .modal span {
                 display: block;
                 width: 40px;
@@ -154,16 +137,14 @@ class AppModal extends HTMLElement {
                 text-align: center;
                 color: #560bad;
                 font-size: 1.5rem;
+                margin-left: auto;
+                margin-right: 22px;
                 border: 1px solid #560bad;
-                position: absolute;
-                top: 12px;
-                left: auto;
-                right: 20px;
             }
 
             .modal .footer {
-            // background-color: red;
-            // border-radius: 10px;
+            background-color: red;
+            border-radius: 10px;
             }
 
         </style>
@@ -172,7 +153,7 @@ class AppModal extends HTMLElement {
                 <div class="header" slot="header">
             <div class="circle"></div>
             <span>x</span>
-            <h1 class="heading" id="heading">F8 ZOOM DAY 33 Components</h1>
+            <h1 id="heading">F8 ZOOM DAY 33 Components</h1>
         </div>
         <div class ="content" slot="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, totam.</p>
