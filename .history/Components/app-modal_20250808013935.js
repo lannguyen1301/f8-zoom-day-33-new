@@ -115,22 +115,18 @@ class AppModal extends HTMLElement {
                 flex-direction: column;
                 transform: scale(0.5);
                 pointer-events: none;
-                opacity: 0.2;
-                transition:  opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .modal.show {
-                opacity: 1;
                 transform: scale(1);
                 pointer-events: auto;
-                
             }
 
             .modal.hidden {
-                opacity: 0.2;
                 transform: scale(0.5);
                 pointer-events: none;
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .inner {
@@ -140,19 +136,7 @@ class AppModal extends HTMLElement {
                 position: relative;
                 max-height: 450px;
                 border-radius: 10px;
-                overflow: auto;
                 /*box-shadow: 0 0 10px red;*/
-            }
-
-            .inner::-webkit-scrollbar {
-                border-radius: 10px;
-                width: 10px
-            }
-
-            .inner::-webkit-scrollbar-thumb {
-                border-radius: 10px;
-                background: #777;
-                width: 10px
             }
             
 
@@ -163,6 +147,9 @@ class AppModal extends HTMLElement {
             .content {
                 margin-bottom: 20px;
                 line-height: 1.5rem
+                position: absolute;
+                max-height: 350px;
+                overflow: auto;
             }
 
             .heading {

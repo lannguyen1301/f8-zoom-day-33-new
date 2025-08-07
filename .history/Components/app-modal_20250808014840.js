@@ -115,22 +115,18 @@ class AppModal extends HTMLElement {
                 flex-direction: column;
                 transform: scale(0.5);
                 pointer-events: none;
-                opacity: 0.2;
-                transition:  opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .modal.show {
-                opacity: 1;
                 transform: scale(1);
                 pointer-events: auto;
-                
             }
 
             .modal.hidden {
-                opacity: 0.2;
                 transform: scale(0.5);
                 pointer-events: none;
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .inner {
@@ -151,7 +147,7 @@ class AppModal extends HTMLElement {
 
             .inner::-webkit-scrollbar-thumb {
                 border-radius: 10px;
-                background: #777;
+                background: #777888;
                 width: 10px
             }
             

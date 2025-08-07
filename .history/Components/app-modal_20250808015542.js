@@ -115,7 +115,7 @@ class AppModal extends HTMLElement {
                 flex-direction: column;
                 transform: scale(0.5);
                 pointer-events: none;
-                opacity: 0.2;
+                opacity: 0.3;
                 transition:  opacity 0.5s ease, transform 0.5s ease;
             }
 
@@ -127,7 +127,7 @@ class AppModal extends HTMLElement {
             }
 
             .modal.hidden {
-                opacity: 0.2;
+                opacity: 0.3;
                 transform: scale(0.5);
                 pointer-events: none;
                 transition: opacity 0.5s ease, transform 0.5s ease;

@@ -115,22 +115,18 @@ class AppModal extends HTMLElement {
                 flex-direction: column;
                 transform: scale(0.5);
                 pointer-events: none;
-                opacity: 0.2;
-                transition:  opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .modal.show {
-                opacity: 1;
                 transform: scale(1);
                 pointer-events: auto;
-                
             }
 
             .modal.hidden {
-                opacity: 0.2;
                 transform: scale(0.5);
                 pointer-events: none;
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .inner {
@@ -140,21 +136,18 @@ class AppModal extends HTMLElement {
                 position: relative;
                 max-height: 450px;
                 border-radius: 10px;
-                overflow: auto;
+                overflow: auto
                 /*box-shadow: 0 0 10px red;*/
             }
 
-            .inner::-webkit-scrollbar {
-                border-radius: 10px;
-                width: 10px
-            }
-
-            .inner::-webkit-scrollbar-thumb {
-                border-radius: 10px;
-                background: #777;
-                width: 10px
+            .inner::-webkit-scrollbar-track {
+                background: red;
+                border-radius: 6px;
             }
             
+            ::-webkit-scrollbar-track {
+            background: transparent;
+            }
 
             .header {
                 margin-bottom: 20px;
@@ -213,7 +206,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading" id="heading">F8 ZOOM DAY 33 Components</h2>
                 </div>
                 <div class="content" slot="content">
-                    <h2 class="heading">
+                    <h2>
                         1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
                     </h2>
                     <p>
@@ -226,7 +219,7 @@ class AppModal extends HTMLElement {
                         bạn đang học cách nhìn thế giới dưới góc độ logic và phản xạ.
                     </p>
 
-                    <h2 class="heading">
+                    <h2>
                         2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
                     </h2>
                     <p>
@@ -239,7 +232,7 @@ class AppModal extends HTMLElement {
                         callback hell, mà bạn thấy được vẻ đẹp của việc điều phối luồng dữ liệu như một nhạc trưởng.
                     </p>
 
-                    <h2 class="heading">
+                    <h2>
                         3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
                     </h2>
                     <p>
@@ -252,7 +245,7 @@ class AppModal extends HTMLElement {
                         hết mọi thứ. Đó là lúc bạn biết mình đã viết tốt.
                     </p>
 
-                    <h2 class="heading">
+                    <h2>
                         4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
                     </h2>
                     <p>

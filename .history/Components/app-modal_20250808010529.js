@@ -115,46 +115,30 @@ class AppModal extends HTMLElement {
                 flex-direction: column;
                 transform: scale(0.5);
                 pointer-events: none;
-                opacity: 0.2;
-                transition:  opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .modal.show {
-                opacity: 1;
                 transform: scale(1);
                 pointer-events: auto;
-                
             }
 
             .modal.hidden {
-                opacity: 0.2;
                 transform: scale(0.5);
                 pointer-events: none;
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition: transform 0.5s ease;
             }
 
             .inner {
                 max-width: 600px;
                 padding: var(--app-modal-padding, 20px);
+                border-radius: 10px;
                 background: #fff;
                 position: relative;
                 max-height: 450px;
-                border-radius: 10px;
-                overflow: auto;
+                overflow-y: auto;
                 /*box-shadow: 0 0 10px red;*/
             }
-
-            .inner::-webkit-scrollbar {
-                border-radius: 10px;
-                width: 10px
-            }
-
-            .inner::-webkit-scrollbar-thumb {
-                border-radius: 10px;
-                background: #777;
-                width: 10px
-            }
-            
 
             .header {
                 margin-bottom: 20px;
@@ -207,85 +191,77 @@ class AppModal extends HTMLElement {
         </style>
         <div class="modal">
             <div class="inner">
-                <div class="header" slot="header">
-                    <div class="circle"></div>
-                    <span id="sp-close" class="sp-close">x</span>
-                    <h2 class="heading" id="heading">F8 ZOOM DAY 33 Components</h2>
-                </div>
-                <div class="content" slot="content">
-                    <h2 class="heading">
-                        1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
-                    </h2>
-                    <p>
-                        JavaScript dạy bạn cách suy nghĩ linh hoạt. Một biến có thể là số, chuỗi, hoặc một hàm — và điều đó
-                        không
-                        phải là
-                        lỗi, mà là sức mạnh. Khi bạn hiểu được cách JS xử lý bất đồng bộ, closure, và hoisting, bạn không
-                        chỉ học
-                        ngôn ngữ,
-                        bạn đang học cách nhìn thế giới dưới góc độ logic và phản xạ.
-                    </p>
+                <div class="inner-content">
+    <div class="header" slot="header">
+        <div class="circle"></div>
+        <span id="sp-close" class="sp-close">x</span>
+        <h2 class="heading" id="heading">F8 ZOOM DAY 33 Components</h2>
+    </div>
+    <div class="content" slot="content">
+        <h2>
+            1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
+        </h2>
+        <p>
+            JavaScript dạy bạn cách suy nghĩ linh hoạt. Một biến có thể là số, chuỗi, hoặc một hàm — và điều đó không
+            phải là
+            lỗi, mà là sức mạnh. Khi bạn hiểu được cách JS xử lý bất đồng bộ, closure, và hoisting, bạn không chỉ học
+            ngôn ngữ,
+            bạn đang học cách nhìn thế giới dưới góc độ logic và phản xạ.
+        </p>
 
-                    <h2 class="heading">
-                        2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
-                    </h2>
-                    <p>
-                        Trong JavaScript, mọi thứ đều có thể xảy ra “sau một chút”. setTimeout, Promise, async/await — chúng
-                        không
-                        làm bạn
-                        chậm lại, chúng giúp bạn kiểm soát thời gian. Khi bạn hiểu được vòng lặp sự kiện (event loop), bạn
-                        không còn
-                        sợ
-                        callback hell, mà bạn thấy được vẻ đẹp của việc điều phối luồng dữ liệu như một nhạc trưởng.
-                    </p>
+        <h2>
+            2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
+        </h2>
+        <p>
+            Trong JavaScript, mọi thứ đều có thể xảy ra “sau một chút”. setTimeout, Promise, async/await — chúng không
+            làm bạn
+            chậm lại, chúng giúp bạn kiểm soát thời gian. Khi bạn hiểu được vòng lặp sự kiện (event loop), bạn không còn
+            sợ
+            callback hell, mà bạn thấy được vẻ đẹp của việc điều phối luồng dữ liệu như một nhạc trưởng.
+        </p>
 
-                    <h2 class="heading">
-                        3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
-                    </h2>
-                    <p>
-                        Một đoạn code JavaScript chạy đúng là điều cần thiết. Nhưng một đoạn code mà người khác đọc vào hiểu
-                        ngay,
-                        sửa được,
-                        mở rộng được — đó mới là đẳng cấp. Hãy viết code như thể bạn đang viết cho chính mình 6 tháng sau,
-                        khi bạn
-                        đã quên
-                        hết mọi thứ. Đó là lúc bạn biết mình đã viết tốt.
-                    </p>
+        <h2>
+            3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
+        </h2>
+        <p>
+            Một đoạn code JavaScript chạy đúng là điều cần thiết. Nhưng một đoạn code mà người khác đọc vào hiểu ngay,
+            sửa được,
+            mở rộng được — đó mới là đẳng cấp. Hãy viết code như thể bạn đang viết cho chính mình 6 tháng sau, khi bạn
+            đã quên
+            hết mọi thứ. Đó là lúc bạn biết mình đã viết tốt.
+        </p>
 
-                    <h2 class="heading">
-                        4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
-                    </h2>
-                    <p>
-                        “If it works, don’t touch it.” → Câu kinh điển. Code đang chạy ngon lành thì đừng “tò mò” sửa, kẻo
-                        lại mở
-                        hộp
-                        Pandora.
-                    </p>
-                    <p>
-                        “Never refactor on a Friday.” → Đừng bao giờ sửa code vào cuối tuần. Bạn không muốn dành cả thứ Bảy
-                        để
-                        rollback đâu.
-                    </p>
-                    <p>
-                        “Code không bug là code chưa chạy đủ lâu.” → Một cách nói vui rằng bug là điều tất yếu, chỉ là chưa
-                        xuất
-                        hiện thôi.
-                    </p>
-                    <p>
-                        “JavaScript: Where false == true is almost true.” → Một cú troll nhẹ về sự kỳ quặc của coercion
-                        trong JS.
-                    </p>
-                    <p>
-                        “Đừng cố thông minh hơn trình duyệt.” → Trình duyệt đã xử lý rất nhiều thứ phức tạp. Đừng viết code
-                        kiểu
-                        “hacky” để
-                        vượt mặt nó.
-                    </p>
-                </div>
-                <div class="footer" slot="footer">
-                    <button id="close-btn">Cancel</button>
-                    <button>Confirm</button>
-                </div>
+        <h2>
+            4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
+        </h2>
+        <p>
+            “If it works, don’t touch it.” → Câu kinh điển. Code đang chạy ngon lành thì đừng “tò mò” sửa, kẻo lại mở
+            hộp
+            Pandora.
+        </p>
+        <p>
+            “Never refactor on a Friday.” → Đừng bao giờ sửa code vào cuối tuần. Bạn không muốn dành cả thứ Bảy để
+            rollback đâu.
+        </p>
+        <p>
+            “Code không bug là code chưa chạy đủ lâu.” → Một cách nói vui rằng bug là điều tất yếu, chỉ là chưa xuất
+            hiện thôi.
+        </p>
+        <p>
+            “JavaScript: Where false == true is almost true.” → Một cú troll nhẹ về sự kỳ quặc của coercion trong JS.
+        </p>
+        <p>
+            “Đừng cố thông minh hơn trình duyệt.” → Trình duyệt đã xử lý rất nhiều thứ phức tạp. Đừng viết code kiểu
+            “hacky” để
+            vượt mặt nó.
+        </p>
+    </div>
+
+    <div class="footer" slot="footer">
+        <button id="close-btn">Cancel</button>
+        <button>Confirm</button>
+    </div>
+</div>
             </div>
         </div>
         `;
