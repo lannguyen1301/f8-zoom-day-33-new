@@ -147,7 +147,7 @@ class AppModal extends HTMLElement {
                 border-radius: 10px;
                 border: 1px solid #a9a9a9;
             }
-
+                
             .header {
                 margin-bottom: 20px;
             }
@@ -159,10 +159,6 @@ class AppModal extends HTMLElement {
   
             .heading {
                 color: var(--app-modal-heading-color, red);
-            }
-
-            p.desc {
-                margin: 10px 0;
             }
 
             .modal span.sp-close {

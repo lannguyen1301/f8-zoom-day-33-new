@@ -32,7 +32,29 @@ class AppModal extends HTMLElement {
                     /* màu mặc định đang là màu đỏ */
             }
 
-            
+            .main {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            font-family: "Segoe UI", sans-serif;
+            }
+
+            .card {
+                background: white;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                min-width: 450px;
+            }
+
+            .card h1 {
+                margin-bottom: 20px;
+                color: #560bad;
+            }
 
             /* From Uiverse.io by cssbuttons-io */
             button {
@@ -42,7 +64,7 @@ class AppModal extends HTMLElement {
                 width: 8em;
                 height: 2.6em;
                 line-height: 2.5em;
-                /*margin: 20px;*/
+                margin: 20px;
                 position: relative;
                 cursor: pointer;
                 overflow: hidden;
@@ -54,7 +76,6 @@ class AppModal extends HTMLElement {
                 font-weight: 500;
                 color: var(--color);
             }
-                
             button:before {
                 content: "";
                 position: absolute;
@@ -85,6 +106,78 @@ class AppModal extends HTMLElement {
                 transition: background 0s;
             }
 
+            /*.modal {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                background: rgba(0, 0, 0, 0.6);
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transform: scale(0.5);
+                pointer-events: none;
+                opacity: 0.2;
+                transition:  opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .modal.show {
+                opacity: 1;
+                transform: scale(1);
+                pointer-events: auto;
+                
+            }
+
+            .modal.hidden {
+                opacity: 0.2;
+                transform: scale(0.5);
+                pointer-events: none;
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .inner {
+                max-width: 600px;
+                padding: var(--app-modal-padding, 20px);
+                background: #fff;
+                position: relative;
+                max-height: 450px;
+                border-radius: 10px;
+                overflow: auto;
+            }
+
+            .inner::-webkit-scrollbar {
+                border-radius: 10px;
+                width: 10px
+            }
+
+            .inner::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #777;
+                width: 10px
+            }
+            
+
+            .header {
+                margin-bottom: 20px;
+            }
+
+            .content {
+                margin-bottom: 20px;
+                line-height: 1.5rem
+            }
+
+            .heading {
+                color: var(--app-modal-heading-color, red);
+            }
+
+            .header, .content, .footer {
+                background: #e1e1e1;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #a9a9a9;
+            }*/
+
+            /*
+            */
 
             .modal {
                 position: fixed;
@@ -109,7 +202,7 @@ class AppModal extends HTMLElement {
                 border-radius: 10px;
                 padding: 20px;
                 min-width: 350px;
-                max-width: 600px;
+                max-width: 500px;
                 transform: scale(0.5);
                 opacity: 0;
                 transition: opacity 0.3s ease, transform 0.3s ease;
@@ -139,15 +232,6 @@ class AppModal extends HTMLElement {
                 width: 10px;
             }
 
-            
-
-            .header, .content, .footer {
-                background: #e1e1e1;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #a9a9a9;
-            }
-
             .header {
                 margin-bottom: 20px;
             }
@@ -161,8 +245,11 @@ class AppModal extends HTMLElement {
                 color: var(--app-modal-heading-color, red);
             }
 
-            p.desc {
-                margin: 10px 0;
+            .header, .content, .footer {
+                background: #e1e1e1;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #a9a9a9;
             }
 
             .modal span.sp-close {
@@ -186,15 +273,9 @@ class AppModal extends HTMLElement {
             }
 
             .modal .footer {
-            }
-
-            .footer .btn-group {
-                display: flex;
-                gap: 20px;
-            }
+            }*/
 
         </style>
-
         <div class="modal">
             <div class="inner">
                 <div class="header" slot="header">
@@ -206,7 +287,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
                     </h2>
-                    <p class="desc">
+                    <p>
                         JavaScript dạy bạn cách suy nghĩ linh hoạt. Một biến có thể là số, chuỗi, hoặc một hàm — và điều đó
                         không
                         phải là
@@ -219,7 +300,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
                     </h2>
-                    <p class="desc">
+                    <p>
                         Trong JavaScript, mọi thứ đều có thể xảy ra “sau một chút”. setTimeout, Promise, async/await — chúng
                         không
                         làm bạn
@@ -232,7 +313,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
                     </h2>
-                    <p class="desc">
+                    <p>
                         Một đoạn code JavaScript chạy đúng là điều cần thiết. Nhưng một đoạn code mà người khác đọc vào hiểu
                         ngay,
                         sửa được,
@@ -245,27 +326,27 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
                     </h2>
-                    <p class="desc">
+                    <p>
                         “If it works, don’t touch it.” → Câu kinh điển. Code đang chạy ngon lành thì đừng “tò mò” sửa, kẻo
                         lại mở
                         hộp
                         Pandora.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Never refactor on a Friday.” → Đừng bao giờ sửa code vào cuối tuần. Bạn không muốn dành cả thứ Bảy
                         để
                         rollback đâu.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Code không bug là code chưa chạy đủ lâu.” → Một cách nói vui rằng bug là điều tất yếu, chỉ là chưa
                         xuất
                         hiện thôi.
                     </p>
-                    <p class="desc">
+                    <p>
                         “JavaScript: Where false == true is almost true.” → Một cú troll nhẹ về sự kỳ quặc của coercion
                         trong JS.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Đừng cố thông minh hơn trình duyệt.” → Trình duyệt đã xử lý rất nhiều thứ phức tạp. Đừng viết code
                         kiểu
                         “hacky” để
@@ -274,10 +355,8 @@ class AppModal extends HTMLElement {
                 </div>
 
                 <div class="footer" slot="footer">
-                    <div class="btn-group">
-                        <button id="close-btn">Cancel</button>
-                        <button>Confirm</button>
-                    </div>
+                    <button id="close-btn">Cancel</button>
+                    <button>Confirm</button>
                 </div>
             </div>
         </div>

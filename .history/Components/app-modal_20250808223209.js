@@ -32,7 +32,29 @@ class AppModal extends HTMLElement {
                     /* màu mặc định đang là màu đỏ */
             }
 
-            
+            .main {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            font-family: "Segoe UI", sans-serif;
+            }
+
+            .card {
+                background: white;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                min-width: 450px;
+            }
+
+            .card h1 {
+                margin-bottom: 20px;
+                color: #560bad;
+            }
 
             /* From Uiverse.io by cssbuttons-io */
             button {
@@ -42,7 +64,7 @@ class AppModal extends HTMLElement {
                 width: 8em;
                 height: 2.6em;
                 line-height: 2.5em;
-                /*margin: 20px;*/
+                margin: 20px;
                 position: relative;
                 cursor: pointer;
                 overflow: hidden;
@@ -54,7 +76,6 @@ class AppModal extends HTMLElement {
                 font-weight: 500;
                 color: var(--color);
             }
-                
             button:before {
                 content: "";
                 position: absolute;
@@ -85,12 +106,109 @@ class AppModal extends HTMLElement {
                 transition: background 0s;
             }
 
+            /*.modal {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                background: rgba(0, 0, 0, 0.6);
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transform: scale(0.5);
+                pointer-events: none;
+                opacity: 0.2;
+                transition:  opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .modal.show {
+                opacity: 1;
+                transform: scale(1);
+                pointer-events: auto;
+                
+            }
+
+            .modal.hidden {
+                opacity: 0.2;
+                transform: scale(0.5);
+                pointer-events: none;
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .inner {
+                max-width: 600px;
+                padding: var(--app-modal-padding, 20px);
+                background: #fff;
+                position: relative;
+                max-height: 450px;
+                border-radius: 10px;
+                overflow: auto;
+            }
+
+            .inner::-webkit-scrollbar {
+                border-radius: 10px;
+                width: 10px
+            }
+
+            .inner::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #777;
+                width: 10px
+            }
+            
+
+            .header {
+                margin-bottom: 20px;
+            }
+
+            .content {
+                margin-bottom: 20px;
+                line-height: 1.5rem
+            }
+
+            .heading {
+                color: var(--app-modal-heading-color, red);
+            }
+
+            .header, .content, .footer {
+                background: #e1e1e1;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #a9a9a9;
+            }
+
+            .modal span.sp-close {
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #f0f0f0;
+                text-align: center;
+                color: #560bad;
+                font-size: 1.5rem;
+                border: 1px solid #560bad;
+                position: absolute;
+                top: 12px;
+                left: auto;
+                right: 20px;
+                transition: background 0.5s ease;
+            }
+
+            .modal span.sp-close:hover {
+                cursor: pointer;
+                background: #560bad;
+                color: #fff;
+                border: 2px solid orange;
+            }
+
+
+            .modal .footer {
+            }*/
 
             .modal {
                 position: fixed;
                 inset: 0;
                 display: flex;
-                align-items: center;
+                align-item: center;
                 justify-content: center;
                 background: rgba(0, 0, 0, 0.6);
                 opacity: 0;
@@ -104,17 +222,14 @@ class AppModal extends HTMLElement {
             
             .inner {
                 position: relative;
-                inset: 0;
                 background: #fff;
                 border-radius: 10px;
                 padding: 20px;
                 min-width: 350px;
-                max-width: 600px;
+                max-width: 500px;
                 transform: scale(0.5);
                 opacity: 0;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                max-height: 500px;
-                overflow: auto;
+                transition: opacity 0.3s ease, transform 0.3 ease;
             }
 
             .inner.show {
@@ -128,73 +243,7 @@ class AppModal extends HTMLElement {
 
             }
 
-            .inner::-webkit-scrollbar {
-                border-radius: 10px;
-                width: 10px;
-            }
-
-            .inner::-webkit-scrollbar-thumb {
-                border-radius: 10px;
-                background: #777;
-                width: 10px;
-            }
-
-            
-
-            .header, .content, .footer {
-                background: #e1e1e1;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #a9a9a9;
-            }
-
-            .header {
-                margin-bottom: 20px;
-            }
-
-            .content {
-                margin-bottom: 20px;
-                line-height: 1.5rem
-            }
-  
-            .heading {
-                color: var(--app-modal-heading-color, red);
-            }
-
-            p.desc {
-                margin: 10px 0;
-            }
-
-            .modal span.sp-close {
-                position: absolute;
-                display: block;
-                right: 20px;
-                top: 20px;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                border: 2px solid orange;
-                text-align: center;
-                padding-top: 3px;
-                padding-left: 2px;
-            }
-
-            .modal span.sp-close:hover {
-                color: #fff;
-                background: #560bad;
-                border: 2px solid grey;
-            }
-
-            .modal .footer {
-            }
-
-            .footer .btn-group {
-                display: flex;
-                gap: 20px;
-            }
-
         </style>
-
         <div class="modal">
             <div class="inner">
                 <div class="header" slot="header">
@@ -206,7 +255,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
                     </h2>
-                    <p class="desc">
+                    <p>
                         JavaScript dạy bạn cách suy nghĩ linh hoạt. Một biến có thể là số, chuỗi, hoặc một hàm — và điều đó
                         không
                         phải là
@@ -219,7 +268,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
                     </h2>
-                    <p class="desc">
+                    <p>
                         Trong JavaScript, mọi thứ đều có thể xảy ra “sau một chút”. setTimeout, Promise, async/await — chúng
                         không
                         làm bạn
@@ -232,7 +281,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
                     </h2>
-                    <p class="desc">
+                    <p>
                         Một đoạn code JavaScript chạy đúng là điều cần thiết. Nhưng một đoạn code mà người khác đọc vào hiểu
                         ngay,
                         sửa được,
@@ -245,39 +294,36 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
                     </h2>
-                    <p class="desc">
+                    <p>
                         “If it works, don’t touch it.” → Câu kinh điển. Code đang chạy ngon lành thì đừng “tò mò” sửa, kẻo
                         lại mở
                         hộp
                         Pandora.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Never refactor on a Friday.” → Đừng bao giờ sửa code vào cuối tuần. Bạn không muốn dành cả thứ Bảy
                         để
                         rollback đâu.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Code không bug là code chưa chạy đủ lâu.” → Một cách nói vui rằng bug là điều tất yếu, chỉ là chưa
                         xuất
                         hiện thôi.
                     </p>
-                    <p class="desc">
+                    <p>
                         “JavaScript: Where false == true is almost true.” → Một cú troll nhẹ về sự kỳ quặc của coercion
                         trong JS.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Đừng cố thông minh hơn trình duyệt.” → Trình duyệt đã xử lý rất nhiều thứ phức tạp. Đừng viết code
                         kiểu
                         “hacky” để
                         vượt mặt nó.
                     </p>
                 </div>
-
                 <div class="footer" slot="footer">
-                    <div class="btn-group">
-                        <button id="close-btn">Cancel</button>
-                        <button>Confirm</button>
-                    </div>
+                    <button id="close-btn">Cancel</button>
+                    <button>Confirm</button>
                 </div>
             </div>
         </div>
@@ -290,7 +336,6 @@ class AppModal extends HTMLElement {
         // Gắn nội dung đã clone vào shadowRoot của component.
 
         const modal = this.shadowRoot.querySelector(".modal");
-        const inner = this.shadowRoot.querySelector(".inner");
         const closeBtn = this.shadowRoot.querySelector(".sp-close"); // dau X de dong modal
         if (!closeBtn) console.warn("Không tìm thấy nút đóng (X)");
 
@@ -299,8 +344,7 @@ class AppModal extends HTMLElement {
 
         // Hiển thị modal
         requestAnimationFrame(() => {
-            modal.classList.add("visible");
-            inner.classList.add("show");
+            modal.classList.add("show");
             // requestAnimationFrame là hàm có sẵn trong js tạo chuyển động mượt mà
             // requestAnimationFrame: Đảm bảo class .show được thêm sau khi DOM render xong
         });
@@ -333,49 +377,38 @@ class AppModal extends HTMLElement {
         this._escHandler = escHandler;
 
         console.log(templateContent); // debug
-
-        // tạo ra 1 sự kiện dispatchEvent, sự kiện này là sự kiện tuỳ chỉnh tên open
-        this.dispatchEvent(new CustomEvent("open"));
     }
 
     close() {
         // tìm phần tử modal trong shadow DOM thông qua truy vấn class modal
         const modal = this.shadowRoot.querySelector(".modal");
-        const inner = this.shadowRoot.querySelector(".inner");
 
         // Nếu không tìm thấy modal thì thoát luôn
-        if (!modal || !inner) {
+        if (!modal) {
             console.warn("Không tìm thấy modal để đóng.");
             return;
         }
 
         // gỡ class show khỏi modal
-        inner.classList.remove("show");
-        inner.classList.add("hide");
-        modal.classList.remove("visible");
+        modal.classList.remove("show");
 
         // add css transition khi gỡ class show
         // Hiển thị modal
         // modal.classList.add("hidden");
 
-        // requestAnimationFrame(() => {
-        //     modal.classList.add("hidden");
-        //     // requestAnimationFrame là hàm có sẵn trong js tạo chuyển động mượt mà
-        //     // requestAnimationFrame: Đảm bảo class .show được thêm sau khi DOM render xong
-        // });
+        requestAnimationFrame(() => {
+            modal.classList.add("hidden");
+            // requestAnimationFrame là hàm có sẵn trong js tạo chuyển động mượt mà
+            // requestAnimationFrame: Đảm bảo class .show được thêm sau khi DOM render xong
+        });
 
-        inner.addEventListener(
+        modal.addEventListener(
             // sau khi thực hiện hết các transition thì mới đóng
             "transitionend",
             () => {
                 this.shadowRoot.innerHTML = "";
-
-                // tạo ra 1 sự kiện dispatchEvent, sự kiện này là sự kiện tuỳ chỉnh tên close
-                this.dispatchEvent(new CustomEvent("close"));
             },
             { once: true }
-            // once xoá bỏ hành động của .addEventListener sau khi gọi
-            // nếu không dùng once thì .addEventListener vẫn nằm chở không thoát khỏi hàm.
 
             // transitionend: Lắng nghe khi hiệu ứng kết thúc để xoá modal khỏi DOM
         );

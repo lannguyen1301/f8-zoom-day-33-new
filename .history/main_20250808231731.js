@@ -10,9 +10,8 @@ const openModalBtn = document.querySelector("#open-modal");
 const appModal = document.querySelector("app-modal");
 console.log(appModal); //Debug: kiểm tra xem phần tử đã được lấy đúng chưa.
 
-// Lắng nghe sự kiện open do modal phát ra từ this.dispatchEvent(new CustomEvent("open")); (có thể từ nút Cancel, nút X, hoặc phím Escape).
 appModal.addEventListener("open", () => {
-    alert("Modal đã được bật");
+    alert();
 });
 
 // Lắng nghe sự kiện close do modal phát ra từ this.dispatchEvent(new CustomEvent("close")); (có thể từ nút Cancel, nút X, hoặc phím Escape).

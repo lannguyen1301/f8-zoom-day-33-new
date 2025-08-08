@@ -139,15 +139,6 @@ class AppModal extends HTMLElement {
                 width: 10px;
             }
 
-            
-
-            .header, .content, .footer {
-                background: #e1e1e1;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #a9a9a9;
-            }
-
             .header {
                 margin-bottom: 20px;
             }
@@ -161,8 +152,11 @@ class AppModal extends HTMLElement {
                 color: var(--app-modal-heading-color, red);
             }
 
-            p.desc {
-                margin: 10px 0;
+            .header, .content, .footer {
+                background: #e1e1e1;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #a9a9a9;
             }
 
             .modal span.sp-close {
@@ -194,7 +188,6 @@ class AppModal extends HTMLElement {
             }
 
         </style>
-
         <div class="modal">
             <div class="inner">
                 <div class="header" slot="header">
@@ -206,7 +199,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         1. JavaScript không chỉ là ngôn ngữ, nó là tư duy
                     </h2>
-                    <p class="desc">
+                    <p>
                         JavaScript dạy bạn cách suy nghĩ linh hoạt. Một biến có thể là số, chuỗi, hoặc một hàm — và điều đó
                         không
                         phải là
@@ -219,7 +212,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         2. Bất đồng bộ không phải là trở ngại, mà là nghệ thuật
                     </h2>
-                    <p class="desc">
+                    <p>
                         Trong JavaScript, mọi thứ đều có thể xảy ra “sau một chút”. setTimeout, Promise, async/await — chúng
                         không
                         làm bạn
@@ -232,7 +225,7 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         3. Code đẹp không phải là code chạy được — mà là code dễ hiểu
                     </h2>
-                    <p class="desc">
+                    <p>
                         Một đoạn code JavaScript chạy đúng là điều cần thiết. Nhưng một đoạn code mà người khác đọc vào hiểu
                         ngay,
                         sửa được,
@@ -245,27 +238,27 @@ class AppModal extends HTMLElement {
                     <h2 class="heading">
                         4. Những câu châm ngôn dân lập trình JavaScript hay dùng:
                     </h2>
-                    <p class="desc">
+                    <p>
                         “If it works, don’t touch it.” → Câu kinh điển. Code đang chạy ngon lành thì đừng “tò mò” sửa, kẻo
                         lại mở
                         hộp
                         Pandora.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Never refactor on a Friday.” → Đừng bao giờ sửa code vào cuối tuần. Bạn không muốn dành cả thứ Bảy
                         để
                         rollback đâu.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Code không bug là code chưa chạy đủ lâu.” → Một cách nói vui rằng bug là điều tất yếu, chỉ là chưa
                         xuất
                         hiện thôi.
                     </p>
-                    <p class="desc">
+                    <p>
                         “JavaScript: Where false == true is almost true.” → Một cú troll nhẹ về sự kỳ quặc của coercion
                         trong JS.
                     </p>
-                    <p class="desc">
+                    <p>
                         “Đừng cố thông minh hơn trình duyệt.” → Trình duyệt đã xử lý rất nhiều thứ phức tạp. Đừng viết code
                         kiểu
                         “hacky” để
