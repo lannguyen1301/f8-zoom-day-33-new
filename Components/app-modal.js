@@ -322,12 +322,15 @@ class AppModal extends HTMLElement {
             if (e.key === "Escape") this.close();
         };
 
-        document.addEventListener("keydown", escHandler);
+        // Đóng khi click ra ngoài
+        document.addEventListener("keydown", escHandler, { once: true });
+        
+        //document.addEventListener("keydown", escHandler);
 
         // Đóng khi click ra ngoài
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) this.close();
-        });
+        //modal.addEventListener("click", (e) => {
+            //if (e.target === modal) this.close();
+       // });
 
         // Lưu lại để cleanup khi đóng
         this._escHandler = escHandler;
